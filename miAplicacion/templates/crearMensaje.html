@@ -1,0 +1,11 @@
+{% extends 'base.html %}
+
+{% block content%}
+    <h1>Crear Mensaje</h1>
+    <form method="post">
+        <textarea name="texto" placeholder="Escriba su mensaje aqui..."></textarea>
+        <input type="emisor" placeholder="Ingrese el remitente...">
+        <input type="receptor" placeholder="Ingrese el destinatario...">
+        <button type="submit">Enviar Mensaje</button>
+    </form>
+{% endblock %}
