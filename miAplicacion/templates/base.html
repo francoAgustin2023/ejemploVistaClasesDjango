@@ -17,14 +17,10 @@
         </div>
         <div class="centro">
             <div class="enlaces">
-                <a href="home.html">Home</a>
-                <a href="crearMensaje.html">Crear Mensaje</a>
-                <a href="verRecibidos.html">Ver mensajes Recibidos</a>
-                <a href="verEnviados.html">Ver mensajes Enviados</a>
-                <a href="eliminarMensaje.html">Eliminar Mensaje</a>
+                {% include 'navbar.html' %}
             </div>
             <div class="contenido">
-                {% block content%}
+                {% block content %}
                 {% endblock %}
             </div>
         </div>

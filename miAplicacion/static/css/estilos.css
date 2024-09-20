@@ -49,3 +49,9 @@
     padding: 20px;
 }
 
+#crearMensaje{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

@@ -15,6 +15,9 @@ urlpatterns = [
     path('prueba/saludar/', views.Saludar.as_view(), name="saludarParametros"), #parametros
     #A partir de aca, vistas para consultar al modelo. Se usan clases
     path('aplicacion/base', views.mostrarBase,name="mostrarBase"), #solo para probar, borrar este path despues
-    path('aplicacion', views.mostrarBase,name="mostrarBase"),
-    path('aplicacion/crearMensaje', views.crearMensaje,name="crearMensaje"),
+    path('aplicacion/home', views.mostrarHome,name="mostrarHome"),
+    path('aplicacion/crearMensaje', views.mostrarCrearMensaje,name="mostrarCrearMensaje"),
+    path('aplicacion/verEnviados', views.mostrarVerMensajesEnviados,name="mostrarVerMensajesEnviados"),
+    path('aplicacion/verRecibidos', views.mostrarVerMensajesRecibidos,name="mostrarVerMensajesRecibidos"),
+    path('aplicacion/eliminarMensaje', views.mostrarEliminarMensaje,name="mostrarEliminarMensaje"),
 ]
