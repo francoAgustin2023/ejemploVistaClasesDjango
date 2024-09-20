@@ -15,14 +15,12 @@
         <div class="titulo">
             Mensajeria!
         </div>
-        <div class="centro">
-            <div class="enlaces">
-                {% include 'navbar.html' %}
-            </div>
-            <div class="contenido">
-                {% block content %}
-                {% endblock %}
-            </div>
+        <div class="enlaces">
+            {% include 'navbar.html' %}
+        </div>
+        <div class="contenido">
+            {% block content %}
+            {% endblock %}
         </div>
     </div>
 </body>

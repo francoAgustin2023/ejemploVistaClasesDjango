@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Crear Mensaje{% endblock %}
+{% block content%}
+    <form class="formulario" method="post">
+        {% csrf_token %}
+        <h1>Ver Mensajes Recibidos</h1>
+        <input name="emisor" placeholder="Ingrese el remitente...">
+        <button type="submit">Buscar</button>
+    </form>
+{% endblock %}

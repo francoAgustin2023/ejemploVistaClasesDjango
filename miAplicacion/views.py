@@ -45,9 +45,6 @@ def mostrarBase(request): #borrar despues y dejar solo el mostrar home
 def mostrarHome(request):
     return render(request, 'home.html')
 
-def mostrarCrearMensaje(request):
-    return render(request, 'crearMensaje.html')
-
 def mostrarVerMensajesEnviados(request):
     return render(request, 'verEnviados.html')
 
@@ -61,8 +58,9 @@ class CrearMensaje(View):
     def get(self, request):
         return render(request, 'crearMensaje.html')
     def post(self, request):
-        texto = request.POST['texto']
-        emisor = request.POST['emisor']
-        receptor = request.POST['receptor']
-        Mensaje.objects.create(texto=texto, emisor=emisor, receptor=receptor)
-        return redirect('base')
+        texto = request.POST.get('texto')
+        emisor = request.POST.get('emisor')
+        receptor = request.POST.get('receptor')
+        nuevoMensaje = Mensaje(texto=texto, emisor=emisor ,receptor=receptor)
+        nuevoMensaje.save()
+        return redirect('mostrarHome')

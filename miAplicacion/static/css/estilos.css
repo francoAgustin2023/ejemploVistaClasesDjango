@@ -5,8 +5,13 @@
     font-family: 'Roboto';
 }
 
+body{
+    background-color: #07C6E8;
+}
+
 .container{
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .titulo{
@@ -18,40 +23,93 @@
     background-color: #07E8C0;
 }
 
-.centro{
-    display: flex;
-    height: 100%;
-    width: 100%;
-}
-
 .enlaces{
-    width: 20%;
     padding: 20px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-evenly;
     text-align: left;
     background-color: #077FE8;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .enlaces a{
     text-decoration: none;
     color: white;
+    margin-right: 15px;
+    background-color: #077FE8;
+    text-align: center;
 }
 
 .enlaces a:hover{
     color: #0738E8;
+    background-color: #07E8C0;
+    border-radius: 10px;
 }
 
 .contenido{
-    width: 80%;
     background-color: #07C6E8;
     padding: 20px;
 }
 
-#crearMensaje{
+/*ESTILOS PROPIOS DE HOME*/
+
+#centroHome{
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 50vh;
 }
 
+#centroHome h1{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/*FORMULARIO EN GENERAL*/
+
+.formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.formulario h1{
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.formulario *{
+    margin-bottom: 10px;
+    width: 500px;
+    border: 1px transparent;
+    font-size: 25px;
+    outline: none;
+}
+
+.formulario *:placeholder-shown{
+    padding: 10px;
+}
+
+.formulario textarea{
+    height: 200px;
+    resize: none;
+    overflow-y: scroll;
+}
+
+.formulario input{
+    height: 40px;
+}
+
+.formulario button{
+    margin-top: 30px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #07E8C0;
+}
+
+.formulario button:hover{
+    background-color: #077FE8;
+    color: white;
+}

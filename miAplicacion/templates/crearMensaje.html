@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-
+{% block title %}Crear Mensaje{% endblock %}
 {% block content%}
-    <h1>Crear Mensaje</h1>
-    <form id="crearMensaje"method="post">
+    <form class="formulario" method="post">
+        {% csrf_token %}
+        <h1>Crear Mensaje</h1>
         <textarea name="texto" placeholder="Escriba su mensaje aqui..."></textarea>
-        <input type="emisor" placeholder="Ingrese el remitente...">
-        <input type="receptor" placeholder="Ingrese el destinatario...">
+        <input name="emisor" placeholder="Ingrese el remitente...">
+        <input name="receptor" placeholder="Ingrese el destinatario...">
         <button type="submit">Enviar Mensaje</button>
     </form>
 {% endblock %}
