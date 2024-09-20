@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Ver Recibidos{% endblock %}
+{% block content%}
+    <form class="formulario" method="get">
+        {% csrf_token %}
+        <h1>Ver Mensajes Recibidos</h1>
+        <input name="emisor" placeholder="Ingrese el destinatario...">
+        <button type="submit">Buscar</button>
+    </form>
+{% endblock %}
