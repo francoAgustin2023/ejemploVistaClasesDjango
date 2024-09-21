@@ -39,21 +39,11 @@ class SaludarComodin(View):
     
 #A partir de aca se empieza a interactuar con el modelo (se usan funciones y clases)
 
-def mostrarBase(request): #borrar despues y dejar solo el mostrar home
-    return render(request, 'base.html')
-
+#MOSTRAR EL HOME
 def mostrarHome(request):
     return render(request, 'home.html')
 
-def mostrarVerMensajesEnviados(request):
-    return render(request, 'verEnviados.html')
-
-def mostrarVerMensajesRecibidos(request):
-    return render(request, 'verRecibidos.html')
-
-def mostrarEliminarMensaje(request):
-    return render(request, 'eliminarMensaje.html')
-
+#CREAR MENSAJE
 class CrearMensaje(View):
     def get(self, request):
         return render(request, 'crearMensaje.html')
@@ -64,3 +54,38 @@ class CrearMensaje(View):
         nuevoMensaje = Mensaje(texto=texto, emisor=emisor ,receptor=receptor)
         nuevoMensaje.save()
         return redirect('mostrarHome')
+
+#RECIBIDOS
+def accionVerMensajesRecibidos(request):
+    receptor = request.GET.get('receptor')
+    if receptor:
+        contexto = {
+            'titulo': 'Mensajes recibidos por '+receptor+': ',
+            'mensajes':Mensaje.objects.filter(receptor=receptor),
+        }
+    else:
+        contexto = {
+            'titulo': 'No hay mensajes buscados aun. Empieze una busqueda.',
+            'mensajes': None,
+        }
+    return render(request, 'verRecibidos.html', contexto)
+
+#ENVIADOS
+def accionVerMensajesEnviados(request):
+    emisor = request.GET.get('emisor')
+    if emisor:
+        contexto = {
+            'titulo': 'Mensajes enviados por '+emisor+': ',
+            'mensajes':Mensaje.objects.filter(emisor=emisor),
+        }
+    else:
+        contexto = {
+            'titulo': 'No hay mensajes buscados aun. Empieze una busqueda.',
+            'mensajes': None,
+        }
+    return render(request, 'verEnviados.html', contexto)
+
+#ELIMINAR MENSAJE
+def mostrarEliminarMensaje(request):
+    return render(request, 'eliminarMensaje.html')
+

@@ -49,6 +49,10 @@ body{
 .contenido{
     background-color: #07C6E8;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .formulario{
@@ -96,4 +100,52 @@ body{
 .formulario button:hover{
     background-color: #077FE8;
     color: white;
+}
+
+.listaMensajes{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 500px;
+    padding: 20px;
+}
+
+.listaMensajes h3{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.listaMensajes ul{
+    border-radius: 10px;
+    background-color: #077FE8;
+    list-style: none;
+    padding: 10px;
+    width: 100%;
+}
+
+.mensaje{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 30px;
+    padding: 10px 20px;
+    background-color: #abebc6;
+    border-radius: 30px;
+}
+
+.mensaje .nombre{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.mensaje .fechaHora{
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+    font-weight: bold;
 }

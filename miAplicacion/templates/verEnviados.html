@@ -7,4 +7,23 @@
         <input name="emisor" placeholder="Ingrese el remitente...">
         <button type="submit">Buscar</button>
     </form>
+    <li class="listaMensajes">
+        <h3>{{ titulo }}</h3>
+        <ul>
+            {% for mensaje in mensajes %}
+            <li class="mensaje">
+                <div class="nombre">
+                    {{ mensaje.receptor }}
+                 </div>
+                <div class="texto">
+                    {{ mensaje.texto }}
+                </div>
+                <div class="fechaHora">
+                    {{ mensaje.fechaEnvio|date:"H:i d/m/Y" }}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
+
