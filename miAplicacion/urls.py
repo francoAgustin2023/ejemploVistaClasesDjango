@@ -18,5 +18,5 @@ urlpatterns = [
     path('aplicacion/crearMensaje', views.CrearMensaje.as_view(),name="CrearMensaje"),
     path('aplicacion/verEnviados', views.accionVerMensajesEnviados,name="accionVerMensajesEnviados"),
     path('aplicacion/verRecibidos', views.accionVerMensajesRecibidos,name="accionVerMensajesRecibidos"),
-    path('aplicacion/eliminarMensaje', views.mostrarEliminarMensaje,name="mostrarEliminarMensaje"),
+    path('aplicacion/eliminarMensaje', views.EliminarMensaje.as_view(),name="EliminarMensaje"),
 ]

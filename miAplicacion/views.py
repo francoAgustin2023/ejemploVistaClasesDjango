@@ -86,6 +86,12 @@ def accionVerMensajesEnviados(request):
     return render(request, 'verEnviados.html', contexto)
 
 #ELIMINAR MENSAJE
-def mostrarEliminarMensaje(request):
-    return render(request, 'eliminarMensaje.html')
-
+class EliminarMensaje(View):
+    def get(self, request):
+        return render(request, 'eliminarMensaje.html')
+    def post(self,request):
+        id = request.POST.get('id')
+        mensaje = Mensaje.objects.filter(id=id)
+        if(mensaje.delete()):
+            return redirect('mostrarHome')
+        
