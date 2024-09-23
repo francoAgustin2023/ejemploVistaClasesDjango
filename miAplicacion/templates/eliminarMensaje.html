@@ -1,10 +1,36 @@
 {% extends 'base.html' %}
 {% block title %}Eliminar Mensaje{% endblock %}
 {% block content%}
-    <form class="formulario" method="post">
+    <!--<form class="formulario" method="post">
         {% csrf_token %}
         <h1>Eliminar Mensaje</h1>
         <input type="number"  min="0" step="1" name="id" style="width: 300px" placeholder="ID Mensaje...">
         <button type="submit">Eliminar</button>
+    </form>
+    -->
+    <form class="listaMensajes" method="post">
+        {% csrf_token %}
+        <h1>Eliminar Mensaje</h1>
+        <ul>
+            <h3>Seleccione un mensaje para eliminar</h3>
+            {% for mensaje in mensajes %}
+                <div class="inputConMensaje" style="display: flex; width: 100%; overflow: visible;">
+                    <input type="radio" name="id" value="{{ mensaje.id }}">
+                    <li class="mensaje">
+                        <div class="nombre">
+                            De: {{ mensaje.emisor }} <br>
+                            Para: {{ mensaje.receptor }}
+                         </div>
+                        <div class="texto">
+                            {{ mensaje.texto }}
+                        </div>
+                        <div class="fechaHora">
+                            {{ mensaje.fechaEnvio|date:"H:i d/m/Y" }}
+                        </div>
+                    </li>
+                </div>
+            {% endfor %}
+            <button type="submit">Eliminar</button>
+        </ul>
     </form>
 {% endblock %}
