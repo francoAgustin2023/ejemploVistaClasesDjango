@@ -88,7 +88,10 @@ def accionVerMensajesEnviados(request):
 #ELIMINAR MENSAJE
 class EliminarMensaje(View):
     def get(self, request):
-        return render(request, 'eliminarMensaje.html')
+        contexto = {
+            'mensajes':Mensaje.objects.all(),
+        }
+        return render(request, 'eliminarMensaje.html', contexto)
     def post(self,request):
         id = request.POST.get('id')
         mensaje = Mensaje.objects.filter(id=id)
